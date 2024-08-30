@@ -1,6 +1,18 @@
 import React from "react";
 
-export default function Nav({ register, login, logout, loading, user }) {
+export default function Nav({
+  register,
+  login,
+  logout,
+  loading,
+  user,
+  createPost,
+  getAllPosts,
+  getPostById,
+  getPostsByUid,
+  updatePost,
+  deletePost,
+}) {
   return (
     <nav>
       <div className="website-name">
@@ -14,6 +26,12 @@ export default function Nav({ register, login, logout, loading, user }) {
           Login
         </button>
         <div className="display-user hide">
+          <button onClick={deletePost}>deletePost</button>
+          <button onClick={updatePost}>updatePost</button>
+          <button onClick={getPostsByUid}>getPostsByUid</button>
+          <button onClick={getPostById}>Find a post</button>
+          <button onClick={getAllPosts}>See posts</button>
+          <button onClick={createPost}>Create Post</button>
           <button onClick={logout} className="btn logout-btn">
             {user && user.email
               ? loading
